@@ -1,0 +1,42 @@
+\documentclass[11pt]{article}
+\usepackage{fullpage}
+\usepackage{amsmath, amsfonts}
+\usepackage[utf8]{inputenc}
+
+
+\begin{document}
+\begin{center}
+{{\Large \sc Algorithms and Data Structures 02105+02326}}
+\end{center}
+\rule{\textwidth}{1pt}
+\begin{description}
+\item[Student name and id:] Roar Nind Steffensen (s144107)
+\item[Teaching assistant:] Martin Hemmingsen
+\item[Hand-in for week:] 2
+\end{description}
+\rule{\textwidth}{1pt}
+ 
+
+\section*{Exercise M.1}
+
+The new array B of length $2n$ is "filled" with all the elements from A. The values of each element transferred from A to B are used as indexes for their place in B (if the language uses 0-indexed arrays, this must be adjusted). Once all elements are transferred to B, we find the first missing element in B. This is the smallest integer missing from the set $\{1, 2, ... 2n\}$.
+\\
+\\
+Transferring all elements is $n$ actions, and finding the element with smallest value in B is atmost $n$ actions, giving this a time complexity if $\Theta(n)$.
+
+\section*{Exercise M.2}
+
+An algorithm using little memory and with a time complexity of $\Theta(n^2)$, can be to store the smallest integer from the set in an $\mathsf{int}$ variable. The array is scanned if it contains an element with this value:\\
+\\
+If it doesn't, we've found the smallest missing integer. \\
+If does, increment the variable and scan again. \\
+\\
+Since the array is scanned for each possible value in the set (of length $2n$) until the missing element is found we have a time complexity of $\Theta(n^2)$.
+
+\section*{Exercise M.3}
+
+Since we know that A contains all values from the set except one, we can add all the values in the set (or calculate it directly as a triangle number), and subtract all elements from A. The resulting value is the missing integer.\\
+\\
+If all values form the set is added, this would be $n+1$ actions, but if the value was to be calculated directly as a triangle number, this would be $1$ action (constant time). Either way, subtracting all elements from A is $n$ actions, which results in a time complexity of $\Theta(n)$.
+
+\end{document}
